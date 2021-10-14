@@ -1,0 +1,18 @@
+<p>employee works!</p>
+
+<h2>{{employee.employee_name | uppercase}} Details</h2>
+<div><span>id: </span>{{employee.id}}</div>
+<div><span>employee name: </span>{{employee.employee_name}}</div>
+<div>
+  <label for="employee_name">Employee name: </label>
+  <input id="employee_name" [(ngModel)]="employee.employee_name" placeholder="employee_name">
+  <div>
+</div>
+  <label for="employee_salary">Employee salary: </label>
+  <input id="employee_salary" [(ngModel)]="employee.employee_salary" placeholder="employee_salary">
+<div>
+</div>
+<label for="employee_age">Employee age: </label>
+<input id="employee_age" [(ngModel)]="employee.employee_age" placeholder="employee_age">
+</div>
+    <div><span>employee image: </span>{{employee.profile_image}}</div>
