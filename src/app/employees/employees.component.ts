@@ -11,8 +11,10 @@ export class EmployeesComponent implements OnInit {
 
   employees= EMPLOYEES;
   selectedemployee?: Employee;
+  empty?: Employee;
 
   constructor() {
+    
   }
 
   ngOnInit(): void {
@@ -20,7 +22,13 @@ export class EmployeesComponent implements OnInit {
     
   }
   onSelect(employee: Employee): void{
-    this.selectedemployee  = employee;
+    
+    if(employee==this.selectedemployee){
+      this.selectedemployee = this.empty;
+    }else{
+      this.selectedemployee  = employee;
+    }
+
   }
 
   
@@ -37,6 +45,10 @@ function APIList() {
           console.log('Could not get posts');
       }
       for (const post of posts.data) {
+        if(post.profile_image==''){
+          post.profile_image='https://cdn150.picsart.com/upscale-245339439045212.png?r1024x1024';
+        }
+
         EMPLOYEES.push({ 
           id: post.id,
           employee_name: post.employee_name,

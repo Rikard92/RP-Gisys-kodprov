@@ -1,5 +1,5 @@
 <h2>All Employees</h2>
-<div>
+<div class="employeesList">
   <ul class="employees">
   <li *ngFor="let employee of employees"
     [class.selected]="employee === selectedemployee"
@@ -10,12 +10,19 @@
 </div>
 
   
-<div *ngIf="selectedemployee">
+<div *ngIf="selectedemployee" class="employeesDetails">
   
     
     <h2>{{selectedemployee.employee_name | uppercase}} Details</h2>
+    <div>      
+      <img
+      width="60"
+      height="60"
+      alt="Angular Logo"
+      src={{selectedemployee.profile_image}}
+    />
+    </div>
 <div><span>id: </span>{{selectedemployee.id}}</div>
-<div><span>selectedemployee name: </span>{{selectedemployee.employee_name}}</div>
 <div>
   <label for="employee_name">Employee name: </label>
   <input id="employee_name" [(ngModel)]="selectedemployee.employee_name" placeholder="employee_name">
@@ -28,7 +35,5 @@
 <label for="employee_age">Employee age: </label>
 <input id="employee_age" [(ngModel)]="selectedemployee.employee_age" placeholder="employee_age">
 </div>
-    <div><span>employee image: </span>{{selectedemployee.profile_image}}</div>
-    
     
   </div>
